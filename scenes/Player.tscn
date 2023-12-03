@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3tcb28lyhpsr"]
+
+[ext_resource type="Texture2D" uid="uid://b8yk2ust201q5" path="res://assets/images/barbettes/basicCannon.png" id="1_vdwiw"]
+[ext_resource type="Texture2D" uid="uid://caa2mi5wwer2x" path="res://assets/images/ships/playerShip.png" id="2_1fq02"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BasicCannon" type="Sprite2D" parent="."]
+position = Vector2(-6, -11)
+texture = ExtResource("1_vdwiw")
+
+[node name="BasicCannon" type="Sprite2D" parent="BasicCannon"]
+position = Vector2(12, 0)
+texture = ExtResource("1_vdwiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1fq02")
