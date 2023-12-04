@@ -1,17 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3tcb28lyhpsr"]
+[gd_scene load_steps=4 format=3 uid="uid://d3tcb28lyhpsr"]
 
+[ext_resource type="Script" path="res://scenes/Player.gd" id="1_qmd3g"]
 [ext_resource type="Texture2D" uid="uid://b8yk2ust201q5" path="res://assets/images/barbettes/basicCannon.png" id="1_vdwiw"]
 [ext_resource type="Texture2D" uid="uid://caa2mi5wwer2x" path="res://assets/images/ships/playerShip.png" id="2_1fq02"]
 
 [node name="Player" type="Node2D"]
+script = ExtResource("1_qmd3g")
 
 [node name="BasicCannon" type="Sprite2D" parent="."]
-position = Vector2(-6, -11)
+position = Vector2(-16, -19)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_vdwiw")
 
-[node name="BasicCannon" type="Sprite2D" parent="BasicCannon"]
-position = Vector2(12, 0)
+[node name="BasicCannon2" type="Sprite2D" parent="."]
+position = Vector2(16, -19)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_vdwiw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ShipSprite" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_1fq02")
