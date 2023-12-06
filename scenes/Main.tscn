@@ -14,3 +14,4 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_4xbu3")]
 position = Vector2(265, 869)
+lateralSpeed = 200.0
