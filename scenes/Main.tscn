@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0xam4ym6fcp"]
+[gd_scene load_steps=4 format=3 uid="uid://c0xam4ym6fcp"]
 
 [ext_resource type="PackedScene" uid="uid://d3tcb28lyhpsr" path="res://scenes/Player.tscn" id="1_4xbu3"]
 [ext_resource type="PackedScene" uid="uid://k2f1a3vr5tr0" path="res://scenes/Enemy.tscn" id="2_i14yf"]
+[ext_resource type="Script" path="res://scenes/EnemySpawner.gd" id="2_o731o"]
 
 [node name="Main" type="Node2D"]
 
@@ -17,5 +18,13 @@ metadata/_edit_lock_ = true
 position = Vector2(265, 869)
 lateralSpeed = 200.0
 
-[node name="Enemy" parent="." instance=ExtResource("2_i14yf")]
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource("2_o731o")
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("2_i14yf")]
 position = Vector2(278, 52)
+
+[node name="SpawnTimer" type="Timer" parent="Enemies"]
+autostart = true
+
+[connection signal="timeout" from="Enemies/SpawnTimer" to="Enemies" method="_on_spawn_timer_timeout"]
