@@ -20,3 +20,8 @@ texture = ExtResource("1_vdwiw")
 [node name="ShipSprite" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_1fq02")
+
+[node name="ShotTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
