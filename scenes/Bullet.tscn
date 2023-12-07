@@ -4,17 +4,19 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyhe1"]
 
-[node name="Bullet" type="Node2D"]
+[node name="Bullet" type="Node2D" groups=["Player"]]
 script = ExtResource("1_kj6eh")
 speed = 300.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." groups=["Player"]]
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 11.0
 offset_bottom = 10.0
 
-[node name="BulletCollider" type="Area2D" parent="."]
+[node name="BulletCollider" type="Area2D" parent="." groups=["Player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletCollider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletCollider" groups=["Player"]]
 shape = SubResource("RectangleShape2D_nyhe1")
+
+[connection signal="area_entered" from="BulletCollider" to="." method="_on_bullet_collider_area_entered"]

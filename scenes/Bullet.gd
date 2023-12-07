@@ -7,3 +7,7 @@ func Start(_position):
 
 func _process(delta):
 	position.y -= speed * delta
+
+func _on_bullet_collider_area_entered(area:Area2D):
+	if	area.is_in_group("Enemy"):
+		queue_free()	
