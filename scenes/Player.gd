@@ -17,7 +17,7 @@ func _process(delta):
 
 func Shoot() :
 	var bullet = Bullet.instantiate()
-	bullet.Start(global_position)
+	bullet.Start(global_position, "Player", -1)
 	get_tree().root.add_child(bullet)
 
 

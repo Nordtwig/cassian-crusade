@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8yk2ust201q5" path="res://assets/images/barbettes/basicCannon.png" id="1_vdwiw"]
 [ext_resource type="Texture2D" uid="uid://caa2mi5wwer2x" path="res://assets/images/ships/playerShip.png" id="2_1fq02"]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_qmd3g")
 
 [node name="BasicCannon" type="Sprite2D" parent="."]
