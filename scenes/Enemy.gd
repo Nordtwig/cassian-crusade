@@ -8,8 +8,8 @@ func _process(delta):
 	position.y += speed * delta
 
 func _on_area_2d_area_entered(area:Area2D):
-	print(area.get_groups()[0])
-	if area.is_in_group("Player"):
+	var areaParent = area.get_owner()
+	if areaParent.is_in_group("Player"):
 		queue_free()	
 
 func _on_shot_timer_timeout():
