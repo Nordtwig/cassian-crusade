@@ -10,7 +10,7 @@ func _process(delta):
 		position.x -= lateralSpeed * delta
 	if Input.is_action_pressed("Right"):
 		position.x += lateralSpeed * delta
-	if Input.is_action_pressed("Shoot") and readyToShoot:
+	if readyToShoot:
 		Shoot($Muzzle1.global_position)
 		Shoot($Muzzle2.global_position)
 		readyToShoot = false
