@@ -11,13 +11,14 @@ func _process(delta):
 	if Input.is_action_pressed("Right"):
 		position.x += lateralSpeed * delta
 	if Input.is_action_pressed("Shoot") and readyToShoot:
-		Shoot()
+		Shoot($Muzzle1.global_position)
+		Shoot($Muzzle2.global_position)
 		readyToShoot = false
 		$ShotTimer.start()
 
-func Shoot() :
+func Shoot(muzzlePosition) :
 	var bullet = Bullet.instantiate()
-	bullet.Start(global_position, "Player", -1)
+	bullet.Start(muzzlePosition, "Player", -1)
 	get_tree().root.add_child(bullet)
 
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3tcb28lyhpsr" path="res://scenes/Player.tscn" id="1_4xbu3"]
 [ext_resource type="PackedScene" uid="uid://k2f1a3vr5tr0" path="res://scenes/Enemy.tscn" id="2_i14yf"]
-[ext_resource type="Script" path="res://scenes/EnemySpawner.gd" id="2_o731o"]
+[ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="2_o731o"]
 
 [node name="Main" type="Node2D"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3tcb28lyhpsr"]
 
-[ext_resource type="Script" path="res://scenes/Player.gd" id="1_qmd3g"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_qmd3g"]
 [ext_resource type="Texture2D" uid="uid://b8yk2ust201q5" path="res://assets/images/barbettes/basicCannon.png" id="1_vdwiw"]
 [ext_resource type="Texture2D" uid="uid://caa2mi5wwer2x" path="res://assets/images/ships/playerShip.png" id="2_1fq02"]
 
@@ -22,6 +22,13 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_1fq02")
 
 [node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
+
+[node name="Muzzle2" type="Node2D" parent="."]
+position = Vector2(16, -30)
+
+[node name="Muzzle1" type="Node2D" parent="."]
+position = Vector2(-16, -30)
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
