@@ -1,27 +1,18 @@
-extends Node2D
+extends CharacterBody2D
 
-@export var lateralSpeed : float = 20.5
+var speed = 200
 
-var Bullet = preload("res://scenes/Bullet.tscn")
-var readyToShoot = false
-
-func _process(delta):
-	if Input.is_action_pressed("Left"):
-		position.x -= lateralSpeed * delta
+func _physics_process(delta):
+	velocity = Vector2(0, 0)
 	if Input.is_action_pressed("Right"):
-		position.x += lateralSpeed * delta
-	if readyToShoot:
-		Shoot($Muzzle1.global_position)
-		Shoot($Muzzle2.global_position)
-		readyToShoot = false
-		$ShotTimer.start()
+		velocity.x = speed
+	if Input.is_action_pressed("Left"):
+		velocity.x = -speed	
+	if Input.is_action_pressed("Up"):
+		velocity.y = -speed
+	if Input.is_action_pressed("Down"):
+		velocity.y = speed
+	move_and_slide()
 
-func Shoot(muzzlePosition) :
-	var bullet = Bullet.instantiate()
-	bullet.Start(muzzlePosition, "Player", -1)
-	get_tree().root.add_child(bullet)
-
-
-
-func _on_shot_timer_timeout():
-	readyToShoot = true
+	var screenSize = get_viewport_rect().size
+	global_position = global_position.clamp(Vector2(0,0), screenSize)

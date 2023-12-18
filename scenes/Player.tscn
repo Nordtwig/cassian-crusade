@@ -1,34 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3tcb28lyhpsr"]
+[gd_scene load_steps=4 format=3 uid="uid://w0dy13mgnip4"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_qmd3g"]
-[ext_resource type="Texture2D" uid="uid://b8yk2ust201q5" path="res://assets/images/barbettes/basicCannon.png" id="1_vdwiw"]
-[ext_resource type="Texture2D" uid="uid://caa2mi5wwer2x" path="res://assets/images/ships/playerShip.png" id="2_1fq02"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_kkso7"]
+[ext_resource type="Texture2D" uid="uid://caa2mi5wwer2x" path="res://assets/images/ships/playerShip.png" id="1_r036v"]
 
-[node name="Player" type="Node2D" groups=["Player"]]
-script = ExtResource("1_qmd3g")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7l3ot"]
+radius = 19.0
+height = 86.0
 
-[node name="BasicCannon" type="Sprite2D" parent="."]
-position = Vector2(-16, -19)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_vdwiw")
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_kkso7")
 
-[node name="BasicCannon2" type="Sprite2D" parent="."]
-position = Vector2(16, -19)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_vdwiw")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("1_r036v")
 
-[node name="ShipSprite" type="Sprite2D" parent="."]
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_1fq02")
-
-[node name="ShotTimer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
-[node name="Muzzle2" type="Node2D" parent="."]
-position = Vector2(16, -30)
-
-[node name="Muzzle1" type="Node2D" parent="."]
-position = Vector2(-16, -30)
-
-[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7l3ot")
