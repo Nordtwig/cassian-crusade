@@ -25,5 +25,5 @@ func _physics_process(delta):
 
 func shoot():
 	var rocketInstance = rocketScene.instantiate()
-	add_child(rocketInstance)
-	rocketInstance.global_position.x += 50
+	get_node("/root/Game/Projectiles").add_child(rocketInstance)
+	rocketInstance.spawn(Vector2(global_position.x + 50, global_position.y))

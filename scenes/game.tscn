@@ -17,3 +17,5 @@ texture = SubResource("GradientTexture2D_5x5qo")
 
 [node name="Player" parent="." instance=ExtResource("1_1ixdt")]
 position = Vector2(86, 397)
+
+[node name="Projectiles" type="Node" parent="."]
