@@ -1,6 +1,12 @@
 extends CharacterBody2D
 
-var speed = 200
+@export var speed = 200
+
+var rocketScene = preload("res://scenes/plasmaBolt.tscn")
+
+func _process(delta):
+	if Input.is_action_just_pressed("Shoot"):
+		shoot()
 
 func _physics_process(delta):
 	velocity = Vector2(0, 0)
@@ -16,3 +22,8 @@ func _physics_process(delta):
 
 	var screenSize = get_viewport_rect().size
 	global_position = global_position.clamp(Vector2(0,0), screenSize)
+
+func shoot():
+	var rocketInstance = rocketScene.instantiate()
+	add_child(rocketInstance)
+	rocketInstance.global_position.x += 50
