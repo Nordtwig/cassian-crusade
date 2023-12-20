@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bijkpvq1hcvcj"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_lyqd1"]
+[ext_resource type="Texture2D" uid="uid://dx8b86ddeb368" path="res://assets/images/ships/gretchSprite.png" id="2_dk1h8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5jnu"]
+size = Vector2(20, 47)
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_lyqd1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("2_dk1h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_v5jnu")

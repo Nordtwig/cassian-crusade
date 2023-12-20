@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://pdpfdmmhc1x"]
+[gd_scene load_steps=5 format=3 uid="uid://pdpfdmmhc1x"]
 
 [ext_resource type="PackedScene" uid="uid://w0dy13mgnip4" path="res://scenes/player.tscn" id="1_1ixdt"]
+[ext_resource type="PackedScene" uid="uid://bijkpvq1hcvcj" path="res://scenes/enemy.tscn" id="2_aqn3t"]
 
 [sub_resource type="Gradient" id="Gradient_asfy2"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0528556, 4.02493e-05, 0.19293, 1)
@@ -19,3 +20,12 @@ texture = SubResource("GradientTexture2D_5x5qo")
 position = Vector2(86, 397)
 
 [node name="Projectiles" type="Node" parent="."]
+
+[node name="Enemy" parent="." instance=ExtResource("2_aqn3t")]
+position = Vector2(1234, 613)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_aqn3t")]
+position = Vector2(1218, 429)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_aqn3t")]
+position = Vector2(1208, 220)
