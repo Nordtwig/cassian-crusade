@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://pdpfdmmhc1x"]
+[gd_scene load_steps=7 format=3 uid="uid://pdpfdmmhc1x"]
 
 [ext_resource type="PackedScene" uid="uid://w0dy13mgnip4" path="res://scenes/player.tscn" id="1_1ixdt"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_ihrqo"]
 [ext_resource type="PackedScene" uid="uid://dss1sbaevtvlt" path="res://scenes/enemySpawner.tscn" id="3_q6r8p"]
 
 [sub_resource type="Gradient" id="Gradient_asfy2"]
@@ -9,7 +10,11 @@ colors = PackedColorArray(0, 0, 0, 1, 0.0528556, 4.02493e-05, 0.19293, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5x5qo"]
 gradient = SubResource("Gradient_asfy2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4g4nh"]
+size = Vector2(116, 771)
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ihrqo")
 
 [node name="Projectiles" type="Node" parent="."]
 
@@ -24,3 +29,14 @@ texture = SubResource("GradientTexture2D_5x5qo")
 position = Vector2(86, 397)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_q6r8p")]
+
+[node name="EnemyDeathZone" type="Area2D" parent="."]
+position = Vector2(-269, 14)
+collision_layer = 8
+collision_mask = 6
+
+[node name="EnemyDeathZoneCollisionShape" type="CollisionShape2D" parent="EnemyDeathZone"]
+position = Vector2(170, 340)
+shape = SubResource("RectangleShape2D_4g4nh")
+
+[connection signal="area_entered" from="EnemyDeathZone" to="." method="_on_enemy_death_zone_area_entered"]
