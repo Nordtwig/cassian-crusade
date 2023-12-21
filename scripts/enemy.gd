@@ -11,3 +11,7 @@ func _process(delta):
 
 func die():
 	queue_free()
+
+func _on_body_entered(body:Node2D):
+	body.takeDamage()
+	die()

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 200
 
+signal tookDamage
 var rocketScene = preload("res://scenes/plasmaBolt.tscn")
 
 func _process(delta):
@@ -27,3 +28,9 @@ func shoot():
 	var rocketInstance = rocketScene.instantiate()
 	get_node("/root/Game/Projectiles").add_child(rocketInstance)
 	rocketInstance.spawn(Vector2(global_position.x + 50, global_position.y))
+
+func takeDamage():
+	emit_signal("tookDamage")
+
+func die():
+	queue_free()
