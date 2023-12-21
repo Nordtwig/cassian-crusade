@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://pdpfdmmhc1x"]
+[gd_scene load_steps=5 format=3 uid="uid://pdpfdmmhc1x"]
 
 [ext_resource type="PackedScene" uid="uid://w0dy13mgnip4" path="res://scenes/player.tscn" id="1_1ixdt"]
-[ext_resource type="PackedScene" uid="uid://bijkpvq1hcvcj" path="res://scenes/enemy.tscn" id="2_aqn3t"]
 [ext_resource type="PackedScene" uid="uid://dss1sbaevtvlt" path="res://scenes/enemySpawner.tscn" id="3_q6r8p"]
 
 [sub_resource type="Gradient" id="Gradient_asfy2"]
@@ -23,14 +22,5 @@ texture = SubResource("GradientTexture2D_5x5qo")
 
 [node name="Player" parent="." instance=ExtResource("1_1ixdt")]
 position = Vector2(86, 397)
-
-[node name="Enemy" parent="." instance=ExtResource("2_aqn3t")]
-position = Vector2(1234, 613)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_aqn3t")]
-position = Vector2(1218, 429)
-
-[node name="Enemy3" parent="." instance=ExtResource("2_aqn3t")]
-position = Vector2(1208, 220)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_q6r8p")]

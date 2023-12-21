@@ -8,3 +8,6 @@ func _ready():
 
 func _process(delta):
 	global_position.x -= 50 * delta
+
+func die():
+	queue_free()
