@@ -1,17 +1,17 @@
 extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+signal died
 
 func _process(delta):
 	global_position.x -= 50 * delta
 
 func die():
+	emit_signal("died")
 	queue_free()
+
 
 func _on_body_entered(body:Node2D):
 	body.takeDamage()
 	die()
+
+	
