@@ -2,8 +2,10 @@ extends Area2D
 
 signal died
 
+@export var speed = 50
+
 func _process(delta):
-	global_position.x -= 50 * delta
+	global_position.x -= speed * delta
 
 func die():
 	emit_signal("died")

@@ -1,11 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://w0dy13mgnip4"]
+[gd_scene load_steps=10 format=3 uid="uid://w0dy13mgnip4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kkso7"]
 [ext_resource type="Texture2D" uid="uid://caa2mi5wwer2x" path="res://assets/images/ships/playerShip.png" id="1_r036v"]
+[ext_resource type="AudioStream" uid="uid://dyfoahh22hokk" path="res://assets/audio/sfx_laser2.wav" id="3_hjg03"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7l3ot"]
 radius = 19.0
 height = 86.0
+
+[sub_resource type="Gradient" id="Gradient_jlusu"]
+offsets = PackedFloat32Array(0, 0.175355, 0.725118, 1)
+colors = PackedColorArray(1, 1, 0.8, 0.541176, 0.9387, 0.564749, 0.203771, 1, 0.522024, 0.159597, 0.176457, 1, 0, 0, 0, 0.121569)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ot1uc"]
+gradient = SubResource("Gradient_jlusu")
+
+[sub_resource type="Curve" id="Curve_rr2ah"]
+_data = [Vector2(0, 0.528938), 0.0, 10.6741, 0, 0, Vector2(0.159363, 0.967287), 0.0, 0.0, 0, 0, Vector2(1, 0.398088), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_blkyq"]
+curve = SubResource("Curve_rr2ah")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wyty3"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 18, 1)
+spread = 30.0
+initial_velocity_min = -300.0
+initial_velocity_max = -300.0
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_blkyq")
+color_ramp = SubResource("GradientTexture1D_ot1uc")
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -18,5 +47,15 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_r036v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7l3ot")
+
+[node name="PlasmaBoltSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hjg03")
+
+[node name="FlameParticleEffect" type="GPUParticles2D" parent="."]
+position = Vector2(-45, 0)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_wyty3")
+lifetime = 0.2
