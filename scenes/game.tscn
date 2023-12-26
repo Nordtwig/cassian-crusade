@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://pdpfdmmhc1x"]
+[gd_scene load_steps=11 format=3 uid="uid://pdpfdmmhc1x"]
 
 [ext_resource type="PackedScene" uid="uid://w0dy13mgnip4" path="res://scenes/player.tscn" id="1_1ixdt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ihrqo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dss1sbaevtvlt" path="res://scenes/enemySpawner.tscn" id="3_q6r8p"]
 [ext_resource type="AudioStream" uid="uid://sse6lhlge6ef" path="res://assets/audio/hit.wav" id="5_f8ymr"]
 [ext_resource type="AudioStream" uid="uid://d3ahnria1unjm" path="res://assets/audio/explode.wav" id="6_hagkl"]
+[ext_resource type="PackedScene" uid="uid://bq7cpaedhposp" path="res://scenes/enemy_path.tscn" id="7_221a0"]
 
 [sub_resource type="Gradient" id="Gradient_asfy2"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0528556, 4.02493e-05, 0.19293, 1)
@@ -51,6 +52,9 @@ stream = ExtResource("5_f8ymr")
 
 [node name="PlayerTakeDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hagkl")
+
+[node name="EnemyPath" parent="." instance=ExtResource("7_221a0")]
+position = Vector2(-30, 71)
 
 [connection signal="tookDamage" from="Player" to="." method="_on_player_took_damage"]
 [connection signal="enemySpawned" from="EnemySpawner" to="." method="_on_enemy_spawned"]
