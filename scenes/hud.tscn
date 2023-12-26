@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://gnncjg1dlpn1"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_km54c"]
+[ext_resource type="Texture2D" uid="uid://caa2mi5wwer2x" path="res://assets/images/ships/playerShip.png" id="2_y1vb1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1fcd3"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_pv0nx"]
+font_size = 24
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_km54c")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 17.0
+offset_right = 240.0
+offset_bottom = 67.0
+scale = Vector2(0.978982, 1.35821)
+text = "SCR: 9999"
+label_settings = SubResource("LabelSettings_1fcd3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 72.0
+offset_right = 118.0
+offset_bottom = 200.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_y1vb1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 78.0
+offset_right = 112.0
+offset_bottom = 112.0
+text = "x"
+label_settings = SubResource("LabelSettings_pv0nx")
+
+[node name="LivesLeft" type="Label" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 79.0
+offset_right = 136.0
+offset_bottom = 113.0
+text = "3
+"
+label_settings = SubResource("LabelSettings_pv0nx")
